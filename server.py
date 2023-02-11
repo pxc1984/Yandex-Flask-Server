@@ -27,5 +27,19 @@ def training(prof):
     return render_template('trainer.html', **param)
 
 
+@app.route('/list_prof/<list>')
+def professions(list):
+    param = {}
+    with open("jobs.json", "rt", encoding="utf8") as f:
+        profs = json.loads(f.read())
+    if list == 'ul':
+        param['list_type'] = "ul"
+    elif list == 'ol':
+        param['list_type'] = "ol"
+    else:
+        return render_template('wrong_param.html')
+    return render_template('professions.html', prof=profs, **param)
+
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
