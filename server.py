@@ -17,5 +17,15 @@ def index(title):
     return render_template('index.html', **param)
 
 
+@app.route('/training/<prof>')
+def training(prof):
+    param = {}
+    if 'инженер' in str(prof) or 'строитель' in str(prof):
+        param['prof'] = True
+    else:
+        param['prof'] = False
+    return render_template('trainer.html', **param)
+
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')

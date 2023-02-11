@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-        <title>{{title}}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet"
               href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -12,4 +11,15 @@
 <body>
     <h1 class="p-3 p-3 mb-2 bg-light text-dark">Миссия Колонизация Марса</h1>
     <h4 class="p-3 p-3 mb-2 text-secondary">И на Марсе будут яблони цвести!</h4>
+    {% if prof %}
+        <h2 class="text-center">Инженерные тренажёры</h2>
+        <div class="text-center">
+            <img class="image-center" src="{{url_for('static', filename='img/Yt150-Freightner-Engeneer-Simulator.png')}}" alt="no img">
+        </div>
+    {% else %}
+        <h2 class="text-center">Научные симуляторы</h2>
+        <div class="text-center">
+            <img src="{{url_for('static', filename='img/Yt150-Freightner-Science-Simulator.png')}}" alt="no img">
+        </div>
+    {%endif%}
 </body>
